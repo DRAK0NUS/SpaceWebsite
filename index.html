@@ -31,9 +31,11 @@
       background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
       color: white;
       padding: 20px;
-      text-align: left;
+      text-align: left; /* Align the sub-titles to the left */
       border-bottom: 0px solid white; /* Add border */
       margin-bottom: 50px;
+      display: flex; /* Align sub-titles horizontally */
+      justify-content: space-between; /* Add space between sub-titles */
     }
     
     h1 {
@@ -64,7 +66,7 @@
       color: white;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       margin-bottom: 30px;
-      border: 2px solid white; /* Add border */
+      border: 0px solid white; /* Add border */
       border-radius: 10px;
     }
     
@@ -121,8 +123,10 @@
     /* Add additional CSS styling for the specific sections, navigation, and visuals as needed */
     
     #introduction {
-      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
-      color: white;
+      background-image: url("GALAXY8.jpg");
+      /*background-image: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
+      /*background-image: url("GALAXY8.jpg");
+      color: white;*/
     }
     
     #timeline {
@@ -171,12 +175,14 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Space</h1>
-    <h2>Welcome to Space</h2>
-    <!-- Add space-themed background image or video here -->
-    <!-- Add navigation menu or sidebar here -->
-  </header>
+    <header>
+        <h1>Space</h1>
+        <h2 onclick="toggleContent('introduction-content', this)" id="introduction-title">Welcome to Space</h2>
+        <h2 onclick="toggleContent('timeline-content', this)" id="timeline-title">Timeline</h2>
+        <h2 onclick="toggleContent('evolution-content', this)" id="evolution-title">Evolution of Technology</h2>
+        <h2 onclick="toggleContent('agencies-content', this)" id="agencies-title">Space Agencies</h2>
+        <h2 onclick="toggleContent('innovations-content', this)" id="innovations-title">Space Technology Innovations</h2>
+      </header>
 
   <section id="introduction">
     <h2 onclick="toggleContent('introduction-content', this)" id="introduction-title">Introduction</h2>
@@ -227,7 +233,7 @@
       const content = document.getElementById(id);
       content.classList.toggle('active');
       element.classList.toggle('animated');
-      element.classList.toggle('shadow-effect');
+     // element.classList.toggle('shadow-effect');
     }
   </script>
 </body>
