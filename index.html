@@ -31,21 +31,30 @@
       background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
       color: white;
       padding: 20px;
-      text-align: center;
-      border-bottom: 2px solid white; /* Add border */
+      text-align: left;
+      border-bottom: 0px solid white; /* Add border */
+      margin-bottom: 50px;
     }
     
     h1 {
       font-size: 36px;
       margin: 0;
       letter-spacing: 2px;
+      text-align: left;
+    }
+    
+    header h2 {
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: 2px;
+      text-align: left;
     }
     
     header img {
       max-width: 100%;
       height: auto;
       margin-top: 20px;
-      border-radius: 8px;
+      border-radius: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
     
@@ -56,6 +65,7 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       margin-bottom: 30px;
       border: 2px solid white; /* Add border */
+      border-radius: 10px;
     }
     
     h2 {
@@ -66,14 +76,38 @@
     }
     
     .content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
+      padding: 150px;
+      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      border: 2px solid white; /* Add border */
+      border-radius: 10px;
+      text-align: center;
+      display: none; /* Initially hide the content */
     }
     
-    .content.show {
-      max-height: 1000px;
-      transition: max-height 0.3s ease;
+    .content.active {
+      display: block; /* Show the content when active class is applied */
+    }
+    
+    h2.content-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    
+    .content img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .content p {
+      margin: 20px 0;
     }
     
     footer {
@@ -110,18 +144,42 @@
       background-color: rgba(44, 122, 166, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
+    
+    /* Add animation for the sub-title */
+    .animated {
+      animation-name: moveText;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-in-out;
+    }
+    
+    @keyframes moveText {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    /* Add box-shadow to the sub-title when clicked */
+    .shadow-effect {
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Space</h1>
-    <img src="placeholder.jpg" alt="Space Image">
+    <h2>Welcome to Space</h2>
     <!-- Add space-themed background image or video here -->
     <!-- Add navigation menu or sidebar here -->
   </header>
 
   <section id="introduction">
-    <h2 onclick="toggleContent('introduction-content')">Welcome to Space</h2>
+    <h2 onclick="toggleContent('introduction-content', this)" id="introduction-title">Introduction</h2>
     <div id="introduction-content" class="content">
       <p>Briefly explain the purpose of the website and its key features.</p>
       <!-- Add engaging visuals or slideshows here -->
@@ -129,47 +187,47 @@
   </section>
 
   <section id="timeline">
-    <h2 onclick="toggleContent('timeline-content')">Timeline</h2>
+    <h2 onclick="toggleContent('timeline-content', this)" id="timeline-title">Timeline</h2>
     <div id="timeline-content" class="content">
       <!-- Add the chronological timeline of milestones here -->
     </div>
   </section>
 
   <section id="evolution">
-    <h2 onclick="toggleContent('evolution-content')">Evolution of Technology</h2>
+    <h2 onclick="toggleContent('evolution-content', this)" id="evolution-title">Evolution of Technology</h2>
     <div id="evolution-content" class="content">
       <!-- Add sub-sections or tabs for different areas of technology -->
-      <!-- Include relevant information, images, or infographics -->
+      <!-- Include relevant information, images, and videos -->
     </div>
   </section>
 
   <section id="agencies">
-    <h2 onclick="toggleContent('agencies-content')">Space Agencies</h2>
+    <h2 onclick="toggleContent('agencies-content', this)" id="agencies-title">Space Agencies</h2>
     <div id="agencies-content" class="content">
-      <!-- Add profiles of different space agencies -->
-      <!-- Include their logo, mission statement, and notable achievements -->
+      <!-- Provide details about different space agencies -->
+      <!-- Include logos, descriptions, and key accomplishments -->
     </div>
   </section>
 
   <section id="innovations">
-    <h2 onclick="toggleContent('innovations-content')">Space Technology Innovations</h2>
+    <h2 onclick="toggleContent('innovations-content', this)" id="innovations-title">Innovations</h2>
     <div id="innovations-content" class="content">
-      <!-- Add sub-sections or tabs for different technology areas -->
-      <!-- Include descriptions, images, or infographics of recent advancements -->
+      <!-- Highlight technological advancements and breakthroughs -->
+      <!-- Include images, descriptions, and key benefits -->
     </div>
   </section>
 
   <footer>
-    <p>Contact us: example@email.com</p>
-    <!-- Add social media links and other relevant information -->
-    <p>&copy; 2023 Space. All rights reserved.</p>
+    <!-- Add footer content and links here -->
+    <p>&copy; 2023 Space Exploration. All rights reserved.</p>
   </footer>
 
   <script>
-    // Function to toggle content visibility
-    function toggleContent(id) {
-      var content = document.getElementById(id);
-      content.classList.toggle('show');
+    function toggleContent(id, element) {
+      const content = document.getElementById(id);
+      content.classList.toggle('active');
+      element.classList.toggle('animated');
+      element.classList.toggle('shadow-effect');
     }
   </script>
 </body>
