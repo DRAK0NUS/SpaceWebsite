@@ -116,47 +116,112 @@
   <header>
     <h1>Space</h1>
     <img src="placeholder.jpg" alt="Space Image">
-    <!-- Add space-themed background image or video here -->
-    <!-- Add navigation menu or sidebar here -->
+    <nav>
+        <ul>
+          <li><a href="#introduction">Introduction</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#evolution">Evolution of Technology</a></li>
+          <!-- Add more menu items as needed -->
+        </ul>
+      </nav>      
   </header>
 
   <section id="introduction">
     <h2 onclick="toggleContent('introduction-content')">Welcome to Space</h2>
     <div id="introduction-content" class="content">
-      <p>Briefly explain the purpose of the website and its key features.</p>
-      <!-- Add engaging visuals or slideshows here -->
-    </div>
+        <p>Briefly explain the purpose of the website and its key features.</p>
+        <div id="slideshow" class="carousel slide" data-bs-ride="carousel">
+          <!-- Add the slideshow images here -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="image1.jpg" alt="Slide 1">
+            </div>
+            <div class="carousel-item">
+              <img src="image2.jpg" alt="Slide 2">
+            </div>
+            <div class="carousel-item">
+              <img src="image3.jpg" alt="Slide 3">
+            </div>
+          </div>
+          <!-- Add slideshow controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#slideshow" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#slideshow" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      
   </section>
 
   <section id="timeline">
     <h2 onclick="toggleContent('timeline-content')">Timeline</h2>
     <div id="timeline-content" class="content">
-      <!-- Add the chronological timeline of milestones here -->
-    </div>
+        <ul>
+          <li>Year 1: Milestone 1</li>
+          <li>Year 2: Milestone 2</li>
+          <li>Year 3: Milestone 3</li>
+          <!-- Add more timeline items as needed -->
+        </ul>
+      </div>
   </section>
 
   <section id="evolution">
     <h2 onclick="toggleContent('evolution-content')">Evolution of Technology</h2>
     <div id="evolution-content" class="content">
-      <!-- Add sub-sections or tabs for different areas of technology -->
-      <!-- Include relevant information, images, or infographics -->
-    </div>
+        <div class="tabs">
+          <button class="tab-link active" onclick="showTab(event, 'sub-section1')">Sub-section 1</button>
+          <button class="tab-link" onclick="showTab(event, 'sub-section2')">Sub-section 2</button>
+          <!-- Add more tab buttons as needed -->
+        </div>
+        <div id="sub-section1" class="tab-content">
+          <!-- Content for sub-section 1 -->
+        </div>
+        <div id="sub-section2" class="tab-content">
+          <!-- Content for sub-section 2 -->
+        </div>
+        <!-- Add more tab content divs as needed -->
+      </div>      
   </section>
 
   <section id="agencies">
     <h2 onclick="toggleContent('agencies-content')">Space Agencies</h2>
     <div id="agencies-content" class="content">
-      <!-- Add profiles of different space agencies -->
-      <!-- Include their logo, mission statement, and notable achievements -->
-    </div>
+        <div class="agency-profile">
+          <img src="agency1_logo.jpg" alt="Agency 1 Logo">
+          <h3>Agency 1</h3>
+          <p>Mission statement: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Notable achievements: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="agency-profile">
+          <img src="agency2_logo.jpg" alt="Agency 2 Logo">
+          <h3>Agency 2</h3>
+          <p>Mission statement: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Notable achievements: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- Add more agency profiles as needed -->
+      </div>      
   </section>
 
   <section id="innovations">
     <h2 onclick="toggleContent('innovations-content')">Space Technology Innovations</h2>
     <div id="innovations-content" class="content">
-      <!-- Add sub-sections or tabs for different technology areas -->
-      <!-- Include descriptions, images, or infographics of recent advancements -->
-    </div>
+        <div class="tabs">
+          <button class="tab-link active" onclick="showTab(event, 'technology1')">Technology 1</button>
+          <button class="tab-link" onclick="showTab(event, 'technology2')">Technology 2</button>
+          <!-- Add more tab buttons as needed -->
+        </div>
+        <div id="technology1" class="tab-content">
+          <!-- Content for Technology 1 -->
+        </div>
+        <div id="technology2" class="tab-content">
+          <!-- Content for Technology 2 -->
+        </div>
+        <!-- Add more tab content divs as needed -->
+      </div>      
   </section>
 
   <footer>
