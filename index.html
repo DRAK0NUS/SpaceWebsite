@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Space Website</title>
+  <title>Space Exploration</title>
   <link rel="stylesheet" type="text/css" href="style.css">
   <style>
     /* Add CSS styling for the elements */
@@ -10,13 +10,29 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #051721; /* Set the background color */
+      background-image: url('GALAXY.jpg'); /* Add your custom image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      animation: backgroundMovement 10s linear infinite; /* Add animation */
+    }
+    
+    @keyframes backgroundMovement {
+      0% {
+        background-position: 0 0; /* Starting position */
+      }
+      100% {
+        background-position: 100% 100%; /* Ending position */
+      }
     }
     
     header {
-      background-color: #051721;
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
       color: white;
       padding: 20px;
       text-align: center;
+      border-bottom: 2px solid white; /* Add border */
     }
     
     h1 {
@@ -35,49 +51,63 @@
     
     section {
       padding: 40px;
-      background-color: #0a2b42;
+      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
       color: white;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       margin-bottom: 30px;
+      border: 2px solid white; /* Add border */
     }
     
     h2 {
       font-size: 24px;
       margin-bottom: 20px;
       color: #ffffff;
+      cursor: pointer;
+    }
+    
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    
+    .content.show {
+      max-height: 1000px;
+      transition: max-height 0.3s ease;
     }
     
     footer {
-      background-color: #051721;
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
       padding: 20px;
       text-align: center;
       color: white;
+      border-top: 2px solid white; /* Add border */
     }
     
     /* Add additional CSS styling for the specific sections, navigation, and visuals as needed */
     
     #introduction {
-      background-color: #0a2b42;
+      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
     
     #timeline {
-      background-color: #113a52;
+      background-color: rgba(17, 58, 82, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
     
     #evolution {
-      background-color: #1a4c6e;
+      background-color: rgba(26, 76, 110, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
     
     #agencies {
-      background-color: #206387;
+      background-color: rgba(32, 99, 135, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
     
     #innovations {
-      background-color: #2c7aa6;
+      background-color: rgba(44, 122, 166, 0.8); /* Adjust the transparency for better visibility */
       color: white;
     }
   </style>
@@ -91,32 +121,42 @@
   </header>
 
   <section id="introduction">
-    <h2>Welcome to Space</h2>
-    <p>Briefly explain the purpose of the website and its key features.</p>
-    <!-- Add engaging visuals or slideshows here -->
+    <h2 onclick="toggleContent('introduction-content')">Welcome to Space</h2>
+    <div id="introduction-content" class="content">
+      <p>Briefly explain the purpose of the website and its key features.</p>
+      <!-- Add engaging visuals or slideshows here -->
+    </div>
   </section>
 
   <section id="timeline">
-    <h2>Timeline</h2>
-    <!-- Add the chronological timeline of milestones here -->
+    <h2 onclick="toggleContent('timeline-content')">Timeline</h2>
+    <div id="timeline-content" class="content">
+      <!-- Add the chronological timeline of milestones here -->
+    </div>
   </section>
 
   <section id="evolution">
-    <h2>Evolution of Technology</h2>
-    <!-- Add sub-sections or tabs for different areas of technology -->
-    <!-- Include relevant information, images, or infographics -->
+    <h2 onclick="toggleContent('evolution-content')">Evolution of Technology</h2>
+    <div id="evolution-content" class="content">
+      <!-- Add sub-sections or tabs for different areas of technology -->
+      <!-- Include relevant information, images, or infographics -->
+    </div>
   </section>
 
   <section id="agencies">
-    <h2>Space Agencies</h2>
-    <!-- Add profiles of different space agencies -->
-    <!-- Include their logo, mission statement, and notable achievements -->
+    <h2 onclick="toggleContent('agencies-content')">Space Agencies</h2>
+    <div id="agencies-content" class="content">
+      <!-- Add profiles of different space agencies -->
+      <!-- Include their logo, mission statement, and notable achievements -->
+    </div>
   </section>
 
   <section id="innovations">
-    <h2>Space Technology Innovations</h2>
-    <!-- Add sub-sections or tabs for different technology areas -->
-    <!-- Include descriptions, images, or infographics of recent advancements -->
+    <h2 onclick="toggleContent('innovations-content')">Space Technology Innovations</h2>
+    <div id="innovations-content" class="content">
+      <!-- Add sub-sections or tabs for different technology areas -->
+      <!-- Include descriptions, images, or infographics of recent advancements -->
+    </div>
   </section>
 
   <footer>
@@ -126,8 +166,11 @@
   </footer>
 
   <script>
-    // Add any JavaScript functionality you require for the website
-    // For example, you can implement interactive navigation for the timeline or sliders for the visuals
+    // Function to toggle content visibility
+    function toggleContent(id) {
+      var content = document.getElementById(id);
+      content.classList.toggle('show');
+    }
   </script>
 </body>
 </html>
