@@ -1,64 +1,244 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Space Landing Page</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>Space Exploration</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    /* Add CSS styling for the elements */
+    
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #051721; /* Set the background color */
+      background-image: url('GALAXY9.jpg'); /* Add your custom image */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      animation: backgroundMovement 10s linear infinite; /* Add animation */
+      opacity: 0.8; /* Set the opacity for the background image */
+    }
+    
+    @keyframes backgroundMovement {
+      0% {
+        background-position: 0 0; /* Starting position */
+      }
+      100% {
+        background-position: 100% 100%; /* Ending position */
+      }
+    }
+    
+    header {
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
+      color: white;
+      padding: 20px;
+      text-align: left; /* Align the sub-titles to the left */
+      border-bottom: 0px solid white; /* Add border */
+      margin-bottom: 0px;
+      display: flex; /* Align sub-titles horizontally */
+      justify-content: space-between; /* Add space between sub-titles */
+    }
+    
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      letter-spacing: 2px;
+      text-align: left;
+    }
+    
+    header h2 {
+      font-size: 18px;
+      margin: 0;
+      letter-spacing: 2px;
+      text-align: left;
+    }
+    
+    header img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    section {
+      padding: 40px;
+      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 0px;
+      border: 0px solid white; /* Add border */
+      border-radius: 10px;
+    }
+    
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+    .content {
+      padding: 150px;
+      background-color: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      border: 2px solid white; /* Add border */
+      border-radius: 10px;
+      text-align: center;
+      display: none; /* Initially hide the content */
+    }
+    
+    .content.active {
+      display: block; /* Show the content when active class is applied */
+    }
+    
+    h2.content-title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+    
+    .content img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .content p {
+      margin: 20px 0;
+    }
+    
+    footer {
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency for better visibility */
+      padding: 20px;
+      text-align: center;
+      color: white;
+      border-top: 2px solid white; /* Add border */
+    }
+    
+    /* Add additional CSS styling for the specific sections, navigation, and visuals as needed */
+    
+    #introduction {
+      background-image: url("GALAXY8.jpg");
+      background-image: rgba(10, 43, 66, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+    }
+    
+    #timeline {
+      background-color: rgba(17, 58, 82, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      background-image: url("GALAXY.jpg");
+    }
+    
+    #evolution {
+      background-color: rgba(26, 76, 110, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      background-image: url("GALAXY10.jpg");
+    }
+    
+    #agencies {
+      background-color: rgba(32, 99, 135, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      background-image: url("GALAXY12.jpg");
+    }
+    
+    #innovations {
+      background-color: rgba(44, 122, 166, 0.8); /* Adjust the transparency for better visibility */
+      color: white;
+      background-image: url("GALAXY14.jpg");
+    }
+    
+    /* Add animation for the sub-title */
+    .animated {
+      animation-name: moveText;
+      animation-duration: 0.3s;
+      animation-timing-function: ease-in-out;
+    }
+    
+    @keyframes moveText {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    /* Add box-shadow to the sub-title when clicked */
+    .shadow-effect {
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#Home">Home</a></li>
-        <li><a href="#Timeline">Timeline</a></li>
-        <li><a href="#Agencies">Agencies</a></li>
-        <li><a href="#Evolution">Evolution</a></li>
-        <li><a href="#Technologies">Technologies</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1>Space</h1>
+        <h2 onclick="toggleContent('introduction-content', this)" id="introduction-title">Welcome to Space</h2>
+        <h2 onclick="toggleContent('timeline-content', this)" id="timeline-title">Timeline</h2>
+        <h2 onclick="toggleContent('evolution-content', this)" id="evolution-title">Evolution of Technology</h2>
+        <h2 onclick="toggleContent('agencies-content', this)" id="agencies-title">Space Agencies</h2>
+        <h2 onclick="toggleContent('innovations-content', this)" id="innovations-title">Space Technology Innovations</h2>
+      </header>
 
-  <section id="home">
-    <h1>Welcome to Space Adventures</h1>
-    <p>Embark on a journey through the cosmos</p>
-    <a href="#contact" class="btn">Book Now</a>
+  <section id="introduction">
+    <h2 onclick="toggleContent('introduction-content', this)" id="introduction-title">Introduction</h2>
+    <div id="introduction-content" class="content">
+      <p>Briefly explain the purpose of the website and its key features.</p>
+      <!-- Add engaging visuals or slideshows here -->
+    </div>
   </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at nisl id dui varius ultrices.</p>
-    <p>Nullam ac ligula a odio sagittis lobortis. Vivamus vitae velit tellus. Duis mattis ex eu semper lacinia.</p>
+  <section id="timeline">
+    <h2 onclick="toggleContent('timeline-content', this)" id="timeline-title">Timeline</h2>
+    <div id="timeline-content" class="content">
+      <!-- Add the chronological timeline of milestones here -->
+    </div>
   </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li><span class="service">Interstellar Cruises</span> - Experience the thrill of traveling across galaxies</li>
-      <li><span class="service">Lunar Landings</span> - Set foot on the moon and explore its wonders</li>
-      <li><span class="service">Stargazing Tours</span> - Observe celestial bodies and discover the mysteries of the universe</li>
-    </ul>
+  <section id="evolution">
+    <h2 onclick="toggleContent('evolution-content', this)" id="evolution-title">Evolution of Technology</h2>
+    <div id="evolution-content" class="content">
+      <!-- Add sub-sections or tabs for different areas of technology -->
+      <!-- Include relevant information, images, and videos -->
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <form id="contactForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+  <section id="agencies">
+    <h2 onclick="toggleContent('agencies-content', this)" id="agencies-title">Space Agencies</h2>
+    <div id="agencies-content" class="content">
+      <!-- Provide details about different space agencies -->
+      <!-- Include logos, descriptions, and key accomplishments -->
+    </div>
+  </section>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <input type="submit" value="Send">
-    </form>
+  <section id="innovations">
+    <h2 onclick="toggleContent('innovations-content', this)" id="innovations-title">Innovations</h2>
+    <div id="innovations-content" class="content">
+      <!-- Highlight technological advancements and breakthroughs -->
+      <!-- Include images, descriptions, and key benefits -->
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2023 Space Adventures. All rights reserved.</p>
+    <!-- Add footer content and links here -->
+    <p>&copy; 2023 Space Exploration. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    function toggleContent(id, element) {
+      const content = document.getElementById(id);
+      content.classList.toggle('active');
+      element.classList.toggle('animated');
+     // element.classList.toggle('shadow-effect');
+    }
+  </script>
 </body>
 </html>
